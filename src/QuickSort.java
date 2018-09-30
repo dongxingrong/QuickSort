@@ -7,31 +7,31 @@ public class QuickSort {
     }
 
     public int getMiddle(Integer[] list, int low, int high) {
-        int tmp = list[low];    //Êı×éµÄµÚÒ»¸ö×÷ÎªÖĞÖá
+        int tmp = list[low];    //æ•°ç»„çš„ç¬¬ä¸€ä¸ªä½œä¸ºä¸­è½´
         while (low < high) {
-            while (low < high && list[high] > tmp) {
+            while (low < high && list[high] >= tmp) {
                 high--;
             }
-            list[low] = list[high];   //±ÈÖĞÖáĞ¡µÄ¼ÇÂ¼ÒÆµ½µÍ¶Ë
-            while (low < high && list[low] < tmp) {
+            list[low] = list[high];   //æ¯”ä¸­è½´å°çš„è®°å½•ç§»åˆ°ä½ç«¯
+            while (low < high && list[low] <= tmp) {
                 low++;
             }
-            list[high] = list[low];   //±ÈÖĞÖá´óµÄ¼ÇÂ¼ÒÆµ½¸ß¶Ë
+            list[high] = list[low];   //æ¯”ä¸­è½´å¤§çš„è®°å½•ç§»åˆ°é«˜ç«¯
         }
-        list[low] = tmp;              //ÖĞÖá¼ÇÂ¼µ½Î²
-        return low;                   //·µ»ØÖĞÖáµÄÎ»ÖÃ
+        list[low] = tmp;              //ä¸­è½´è®°å½•åˆ°å°¾
+        return low;                   //è¿”å›ä¸­è½´çš„ä½ç½®
     }
 
     public void _quickSort(Integer[] list, int low, int high) {
         if (low < high) {
-            int middle = getMiddle(list, low, high);  //½«listÊı×é½øĞĞÒ»·ÖÎª¶ş
-            _quickSort(list, low, middle - 1);        //¶ÔµÍ×Ö±í½øĞĞµİ¹éÅÅĞò
-            _quickSort(list, middle + 1, high);       //¶Ô¸ß×Ö±í½øĞĞµİ¹éÅÅĞò
+            int middle = getMiddle(list, low, high);  //å°†listæ•°ç»„è¿›è¡Œä¸€åˆ†ä¸ºäºŒ
+            _quickSort(list, low, middle - 1);        //å¯¹ä½å­—è¡¨è¿›è¡Œé€’å½’æ’åº
+            _quickSort(list, middle + 1, high);       //å¯¹é«˜å­—è¡¨è¿›è¡Œé€’å½’æ’åº
         }
     }
 
     public void quick(Integer[] str) {
-        if (str.length > 0) {    //²é¿´Êı×éÊÇ·ñÎª¿Õ
+        if (str.length > 0) {    //æŸ¥çœ‹æ•°ç»„æ˜¯å¦ä¸ºç©º
             _quickSort(str, 0, str.length - 1);
         }
     }
